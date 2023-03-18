@@ -3,7 +3,7 @@ import mockData from "./data.json"
 
 export async function getCities(searchKey: string) {
   await mockDelay(500)
-  if (searchKey === "fail") {
+  if (searchKey.toLowerCase() === "fail") {
     throw new Error("Server Error")
   } else {
     return mockData.filter((city) =>
