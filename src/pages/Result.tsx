@@ -42,7 +42,7 @@ const Result = () => {
   return (
     <PageContainer>
       {error || !searchParams.get("origin") ? (
-        <Typography.Label fontSize="24px" textAlign="center" color="error">
+        <Typography.Label sx={{ fontWeight: 700, color: "primary.dark", textAlign: "center" }}>
           {error || "Origin should be set"}
         </Typography.Label>
       ) : isLoading ? (
