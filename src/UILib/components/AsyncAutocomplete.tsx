@@ -46,7 +46,7 @@ const AsyncAutocomplete: React.FC<AsyncAutocompleteProps> = ({
       setLoading(false)
     } catch (error: any) {
       setLoading(false)
-      setErrorMsg(error.message)
+      setErrorMsg("Oops! Failed to search with this keyword.")
     }
   }, [searchKey])
 
@@ -163,11 +163,7 @@ const AsyncAutocomplete: React.FC<AsyncAutocompleteProps> = ({
               ))}
             </Box>
           ) :
-            errorMsg ? (
-              <Typography.Label color="error">
-                {errorMsg}
-              </Typography.Label>
-            ) : data.length > 0 ? (
+            data.length > 0 ? (
               data.map((d, index) => (
                 <Typography.Label
                   key={d[0]}
@@ -193,7 +189,7 @@ const AsyncAutocomplete: React.FC<AsyncAutocompleteProps> = ({
             )}
         </Combobox>
       </Popover>
-      {error && <Typography.Label color="error">{error}</Typography.Label>}
+      {(error || errorMsg) && <Typography.Label color="error">{error || errorMsg}</Typography.Label>}
     </Box>
   )
 }
