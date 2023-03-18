@@ -163,7 +163,7 @@ const AsyncAutocomplete: React.FC<AsyncAutocompleteProps> = ({
               ))}
             </Box>
           ) :
-            data.length > 0 ? (
+            data.length > 0 && !error && !errorMsg ? (
               data.map((d, index) => (
                 <Typography.Label
                   key={d[0]}
