@@ -26,9 +26,8 @@ const Result = () => {
         setTotal(total)
         setLoading(false)
       } catch (error: any) {
-        console.log(error)
         setLoading(false)
-        setError(error.message)
+        setError("Oops! Something went wrong!")
       }
     }
 
